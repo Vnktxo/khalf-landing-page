@@ -1114,3 +1114,50 @@ h3 { font-weight: 600; font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
     grid-template-columns: 1fr !important;
   }
 }
+/* Hero with full-bleed background + overlapping card */
+.hero-bleed{
+  position: relative;
+  background: var(--hero-bg) center/cover no-repeat !important; /* img6 */
+}
+
+/* subtle dark scrim so text reads on any photo */
+.hero-bleed::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.10) 45%, rgba(0,0,0,0) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ensure content sits above the image */
+.hero-bleed .container{
+  position: relative;
+  z-index: 1;
+  padding: clamp(3rem, 10vw, 6rem) 0; /* vertical breathing room */
+}
+
+/* the white card that overlaps the image */
+.hero-card{
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 44px rgba(0,0,0,.14);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  max-width: 920px;
+}
+
+/* if earlier .hero set a gradient, neutralize it for this variant */
+.hero.hero-bleed{ background: var(--hero-bg) center/cover no-repeat !important; }
+
+/* optional: give the card a soft “lift” by shifting it up slightly on wide screens */
+@media (min-width: 900px){
+  .hero-card{ transform: translateY(0); } /* set to -10px if you want it to float more */
+}
+/* Use img6 for the hero-bleed variant, regardless of earlier .hero rules */
+.hero.section.hero-bleed{
+  background: var(--hero-bg, url('assets/hero.jpg')) center/cover no-repeat !important;
+}
+
+/* Scope the old default hero background so it doesn't affect hero-bleed */
+.hero:not(.hero-bleed){
+  background: url('assets/hero.jpg') center/cover no-repeat;
+}
