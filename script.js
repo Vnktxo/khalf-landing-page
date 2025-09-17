@@ -1,58 +1,61 @@
-// Smooth scroll for in-page anchors
-document.addEventListener('click', (e) => {
-  const a = e.target.closest('a[href^="#"]');
-  if (!a) return;
-  const id = a.getAttribute('href').slice(1);
-  const el = document.getElementById(id);
-  if (el) {
-    e.preventDefault();
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+(function() {
+  const slider = document.querySelector('.slider');
+  if (!slider) return;
+  const track = slider.querySelector('.slides');
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  const dotsWrap = slider.querySelector('.slider-dots');
+  let index = 0;
+  let timer = null;
+  const delayMs = 3500;
+  if (slides.length === 0) return;
+  // Build dots
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-controls', `slide-${i}`);
+    btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    if (i === 0) btn.setAttribute('aria-selected', 'true');
+    btn.addEventListener('click', () => goTo(i, true));
+    dotsWrap.appendChild(btn);
+  });
+  slides.forEach((slide, i) => slide.setAttribute('id', `slide-${i}`));
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dotsWrap.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-selected', i === index ? 'true' : 'false'));
   }
-});
-
-// Simple form validation enhancement + analytics
-const form = document.getElementById('lead-form');
-if (form) {
-  let started = false;
-
-  form.addEventListener('input', () => {
-    if (!started) {
-      started = true;
-      if (window.gtag) gtag('event', 'lead_form_start');
+  function goTo(i, user = false) {
+    index = (i + slides.length) % slides.length;
+    update();
+    if (user) restart();
+  }
+  function next() {
+    goTo(index + 1);
+  }
+  function start() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    stop();
+    timer = setInterval(next, delayMs);
+  }
+  function stop() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
     }
+  }
+  function restart() {
+    stop();
+    start();
+  }
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+  slider.addEventListener('touchstart', stop, {
+    passive: true
   });
-
-  form.addEventListener('submit', (e) => {
-    if (!form.checkValidity()) {
-      e.preventDefault();
-      form.reportValidity();
-      return;
-    }
-    e.preventDefault();
-    // REPLACE: integrate with your backend/CRM
-    alert('Thanks! We will get back to you shortly.');
-    if (window.gtag) gtag('event', 'lead_form_submit');
-    form.reset();
-    started = false;
+  slider.addEventListener('touchend', start, {
+    passive: true
   });
-}
-
-// Generic analytics for key links
-document.addEventListener('click', (e) => {
-  const el = e.target.closest('[data-analytics]');
-  if (!el || !window.gtag) return;
-  const eventName = el.getAttribute('data-analytics');
-  gtag('event', eventName, { label: (el.textContent || '').trim() });
-});
-
-// Track tel:, mailto:, calendly, social clicks
-document.querySelectorAll('a[href^="tel:"],a[href^="mailto:"],a[href*="calendly.com"],a[data-analytics="social_click"]')
-  .forEach(a => {
-    a.addEventListener('click', () => {
-      if (!window.gtag) return;
-      if (a.href.startsWith('tel:')) gtag('event', 'tel_click');
-      else if (a.href.startsWith('mailto:')) gtag('event', 'email_click');
-      else if (a.href.includes('calendly.com')) gtag('event', 'calendly_click');
-      else gtag('event', 'social_click', { label: (a.textContent || '').trim() });
-    });
-  });
+  // Kick off
+  update();
+  start();
+})();

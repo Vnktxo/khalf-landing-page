@@ -12,19 +12,18 @@
   <meta property="og:description" content="Vibrant coworking in Chennai with ultra speed wifi, meeting rooms, pantry, networking and more. Book a visit to Anna Nagar, Guindy or OMR.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.khalfcoworks.in/">
-  <meta property="og:image" content="assets\Hero image.png"><!-- REPLACE WITH SITE IMAGE -->
+  <meta property="og:image" content="assets/hero.jpg"><!-- REPLACE WITH SITE IMAGE -->
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Khalf CoWorks: Coworking & Private Offices in Chennai">
   <meta name="twitter:description" content="Vibrant coworking in Chennai with ultra speed wifi, meeting rooms, pantry, networking and more. Book a visit to Anna Nagar, Guindy or OMR.">
-  <meta name="twitter:image" content="assets\Hero image.png"><!-- REPLACE -->
+  <meta name="twitter:image" content="assets/hero.jpg"><!-- REPLACE -->
 
   <!-- Fonts (fallbacks) - TODO: replace with exact site families if you have them -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="amenities-overrides.css">
 
   <!-- GA4 Placeholder -->
   <!-- TODO: REPLACE WITH YOUR GA4 MEASUREMENT ID -->
@@ -102,7 +101,7 @@
     <div class="container">
       <a href="/" class="brand" aria-label="Khalf CoWorks home">
         <!-- REPLACE WITH BRAND SVG/PNG -->
-        <img src="assets\Khalf Branding Files.png" alt="Khalf CoWorks logo - Connect • Create • Collaborate" width="160" height="44" />
+        <img src="assets/Khalf Branding Files.png" alt="Khalf CoWorks logo - Connect • Create • Collaborate" width="160" height="44" />
       </a>
       <nav class="nav" aria-label="Primary">
         <a class="btn btn-primary" id="primary-cta" href="https://www.khalfcoworks.in/contact-us" data-analytics="book_visit_click">Book a Visit</a>
@@ -131,72 +130,52 @@
 </section>
 
   <!-- WHY label (optional) -->
-<!-- Full-bleed background image section -->
-<div class="amenities-overlay" style="--amenities-bg: url('assets/second-image.jpg');">
-  <div class="amenities-layer">
-    <!-- LEFT: text (over the image) -->
-    <div class="amenities-copy">
-      <h2>Team bonding doesn’t happen over patchy Wi-Fi.</h2>
-      <p>Ultra-speed Wi-Fi, meeting rooms, pantry, print credit, parking & more.</p>
+<!-- Amenities (full-bleed) -->
+<section class="section" id="amenities" aria-labelledby="amenities-title">
+  <div class="amenities-overlay" style="--amenities-bg: url('assets/img4.jpg');">
+    <div class="amenities-layer">
+      <div class="amenities-copy">
+        <h2 id="amenities-title">Team bonding doesn’t happen over patchy Wi‑Fi.</h2>
+        <p>Ultra-speed Wi‑Fi, meeting rooms, pantry, print credit, parking & more.</p>
+      </div>
+
+      <ul class="amenities-icons grid-2" role="list">
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/Wifi.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Ultra Speed wifi</span>
+        </li>
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/meeting-room.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Meeting Rooms</span>
+        </li>
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/cafeteria.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Pantry</span>
+        </li>
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/printer.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Free Print Credit</span>
+        </li>
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/coffee-machine.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Tea/coffee</span>
+        </li>
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/car parking.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Parking</span>
+        </li>
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/networking.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Networking</span>
+        </li>
+        <li class="amenity">
+          <span class="icon"><img loading="lazy" src="assets/icons/games.png" alt="" aria-hidden="true" /></span>
+          <span class="label">Games</span>
+        </li>
+      </ul>
     </div>
-
-    <!-- RIGHT: icons (3 per row) -->
-    <ul class="amenities-icons grid-2" role="list">
-      <!-- paste your existing <li class="amenity">…</li> items here -->
-    </ul>
   </div>
-</div>
-
-
-
-<ul class="amenities-icons grid-2" role="list">
-      <li class="amenity">
-        <span class="icon"><img src="assets/icons/Wifi.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Ultra Speed wifi</span>
-      </li>
-      <li class="amenity">
-        <span class="icon"><img src="assets\icons\meeting-room.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Meeting Rooms</span>
-      </li>
-      <li class="amenity">
-        <span class="icon"><img src="assets\icons\cafeteria.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Pantry</span>
-      </li>
-      <li class="amenity">
-        <span class="icon"><img src="assets\icons\printer.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Free Print Credit</span>
-      </li>
-      <li class="amenity">
-        <span class="icon"><img src="assets\icons\coffee-machine.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Tea/coffee</span>
-      </li>
-      <li class="amenity">
-        <span class="icon"><img src="assets\icons\car parking.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Parking</span>
-      </li>
-      <li class="amenity">
-        <span class="icon"><img src="assets/icons/networking.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Networking</span>
-      </li>
-      <li class="amenity">
-        <span class="icon"><img src="assets\icons\games.png" alt="" aria-hidden="true" /></span>
-        <span class="label">Games</span>
-      </li>
-    </ul>
-  </div>
-
-  <!-- RIGHT: Why Choose Us (with bg image) -->
-  <aside class="why-card with-bg" aria-labelledby="why-title"
-         style="--why-bg:url('assets/why-choose-us.png');">
-    <h3 id="why-title"><span class="accent">Why</span> Choose Us?</h3>
-    <ul class="why-bullets">
-      <li>Three Chennai locations — Anna Nagar, Guindy, OMR (Perungudi)</li>
-      <li>Ultra Speed wifi, pantry &amp; tea/coffee</li>
-      <li>Meeting rooms, coworking seats &amp; private office space</li>
-      <li>Free print credit, parking &amp; a networking community</li>
-    </ul>
-  </aside>
-</div>
+</section>
 
 
 
@@ -204,12 +183,13 @@
     <section class="section" id="spaces" aria-labelledby="spaces-title">
       <div class="container">
         <h2 id="spaces-title">Is your team brainstorming—or just talking online?
+          <br>Move from mute to MOMENTUM.</br>
 
 </h2>
 
         <div class="grid cards">
           <article class="card">
-            <img src="assets\meeting rooms.png" alt="Meeting Rooms" />
+            <img loading="lazy" src="assets/img1.jpg" alt="Meeting Rooms" />
             <h3>Meeting Rooms</h3>
             <p>Discover versatile collaborative spaces suitable for all corporate occasions, whether it's board meetings or casual gatherings.</p>
             <div class="card-actions">
@@ -218,7 +198,7 @@
             </div>
           </article>
           <article class="card">
-          <img src="assets\Private office.png" alt="Private office at Khalf CoWorks" />
+          <img loading="lazy" src="assets/img7.jpg" alt="Private office at Khalf CoWorks" />
           
             <h3>Private Office Space</h3>
             <p>Explore ready-to-use office spaces carefully designed for functionality and optimal spacing, perfect for your immediate occupancy needs.</p>
@@ -228,7 +208,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="assets\Coworking rooms.png" alt="Coworking floor at Khalf CoWorks" />
+            <img loading="lazy" src="assets/img3.jpg" alt="Coworking floor at Khalf CoWorks" />
             <h3>CoWorking Space</h3>
             <p>Choose from either of our dedicated seats or flexi seats and become a part of our coworking community.</p>
             <div class="card-actions">
@@ -244,19 +224,19 @@
     <section class="section" id="locations" aria-labelledby="locations-title">
       <div class="container">
         <h2 id="locations-title">Tired of endless online calls with your team?<br> Check out our locations</h2>
-
-</h2>
-
         <div class="locations">
           <div class="loc">
+            <img loading="lazy" src="assets/img2.jpg" alt="Anna Nagar workspace" class="loc-img" />
             <h3>Anna Nagar</h3>
             <p>AB 103 &amp; 105, 2nd Floor, 4th Ave, Chennai, Tamil Nadu 600040</p>
           </div>
           <div class="loc">
+            <img loading="lazy" src="assets/img1.jpg" alt="Guindy meeting rooms" class="loc-img" />
             <h3>Guindy</h3>
             <p>2nd Floor, RR Tower 3, Thiru Vi Ka Industrial Estate, SIDCO Industrial Estate, Chennai, Tamil Nadu 600032</p>
           </div>
           <div class="loc">
+            <img loading="lazy" src="assets/img7.jpg" alt="OMR coworking floor" class="loc-img" />
             <h3>OMR (Perungudi)</h3>
             <p>9th Floor, Prince Infocity 1 – Old Mahabalipuram Road, Perungudi, Chennai, Tamil Nadu 600096</p>
           </div>
