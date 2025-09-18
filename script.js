@@ -85,3 +85,33 @@
     if (panel) panel.hidden = isOpen;
   });
 })();
+
+// Delegated analytics for buttons/links
+(function(){
+  function sendGA(eventName, params){
+    if (typeof gtag !== 'function') return;
+    try {
+      gtag('event', eventName, params || {});
+    } catch(e) { /* swallow */ }
+  }
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('a, button');
+    if (!el) return;
+    const action = el.getAttribute('data-analytics');
+    if (!action) return;
+    const text = (el.textContent || '').trim().slice(0, 80);
+    const href = el.getAttribute('href') || '';
+    const section = el.closest('section')?.id || 'page';
+    // Map simple actions to GA4 events
+    let eventName = 'select_content';
+    if (action === 'generate_lead') eventName = 'generate_lead';
+    if (action === 'tel_click') eventName = 'click';
+    if (action === 'email_click') eventName = 'click';
+    sendGA(eventName, {
+      link_text: text,
+      link_url: href,
+      section_id: section,
+      action
+    });
+  }, { capture: true });
+})();
