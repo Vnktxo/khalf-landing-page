@@ -1,0 +1,1276 @@
+/* ===================== TOKENS ===================== */
+:root {
+  /* Brand from logo */
+  --brand-accent-orange: #FE924F;
+  --brand-accent-yellow: #FEF46D;
+  --brand-accent-blue:   #656767;
+  --brand-slate:         #1d4f6d;
+  --brand-ink:           #000000;
+  --surface:             #FFFFFF;
+
+  /* Optional deeper gold (closer to screenshot) */
+  --brand-gold-600: #E7C457;
+
+  /* Neutrals */
+  --ink-600: #222222;
+  --ink-400: #555555;
+
+  /* Spacing & radius */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+
+  --radius-1: 8px;
+  --radius-2: 14px;
+
+  /* Typography */
+  --font-head: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ===================== GLOBAL ===================== */
+* { box-sizing: border-box; }
+html:focus-within { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink-600);
+  --brand-slate:         #69889B;
+  background-image: linear-gradient(to top, #ffffff, #283E51);
+  font: 400 clamp(1rem, 1.2vw, 1.0625rem)/1.6 var(--font-body);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--brand-accent-blue); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+h1,h2,h3,h4 { font-family: var(--font-head); color: var(--brand-ink); margin: 0 0 var(--space-2); }
+h1 { font-weight: 700; font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;}
+h2 { font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-weight: 600; font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+.small { font-size: 0.875rem; color: var(--ink-400); }
+.tiny { font-size: 0.75rem; color: var(--ink-400); }
+
+.container {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 0 var(--space-1);
+}
+
+.section { padding: clamp(2rem, 6vw, 4rem) 0; }
+.center { text-align: center; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: auto;
+  width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus {
+  position: fixed; left: 1rem; top: 1rem; width: auto; height: auto;
+  padding: 0.5rem 0.75rem; background: #fff; border: 2px solid var(--brand-accent-blue);
+}
+
+/* ===================== HEADER ===================== */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  border-bottom: 1px solid #eee;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: saturate(120%) blur(4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.04);
+}
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: calc(var(--space-1) + 1px) 4; /* tighter header */
+}
+.brand img { display: block; height: 120px; width: auto; }
+
+/* compact primary CTA in header for balance */
+.site-header .btn {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 560px){
+  .site-header .container{ gap: .5rem; }
+  .brand img{ height: 100px; }
+  .site-header .btn{ padding: 0.5rem 0.8rem; font-size: .95rem; }
+}
+
+/* ===================== HERO ===================== */
+.hero {
+  background: url('assets/hero.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero .container {
+  display: grid; gap: var(--space-3);
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .hero .container { grid-template-columns: 1fr; }
+}
+.hero .subhead { color: var(--ink-400); max-width: 52ch; }
+.hero .tagline {
+  margin-top: var(--space-1);
+  font-weight: 600;
+  color: var(--brand-slate);
+}
+/* ===================== BUTTONS ===================== */
+.btn {
+  display: inline-block; border: 2px solid transparent;
+  border-radius: var(--radius-1);
+  padding: 0.7rem 1.1rem;
+  font-weight: 600; letter-spacing: 0.2px;
+  transition: transform .12s ease, filter .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.btn-primary {
+  display: grid;
+  background: var(--brand-accent-orange); color: #111;
+  align-items: center;
+  border-color: var(--brand-accent-orange);
+}
+.btn-primary:hover, .btn-primary:focus { filter: brightness(0.96); box-shadow: 0 8px 18px rgba(254,146,79,.28); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--brand-ink);
+  border-color: var(--brand-ink);
+}
+.btn-outline:hover, .btn-outline:focus { background: var(--brand-ink); color: #fff; box-shadow: 0 8px 18px rgba(0,0,0,.18); transform: translateY(-1px); }
+.link { color: var(--brand-accent-blue); }
+
+/* ===================== GENERIC GRIDS ===================== */
+.grid { display: grid; gap: var(--space-2); }
+.cards { grid-template-columns: 1fr; }
+@media (min-width: 860px) { .cards { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.card {
+  padding: var(--space-3);
+  border: 1px solid #eee;
+  border-radius: var(--radius-2);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+  transition: transform .16s ease, box-shadow .2s ease;
+}
+.card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(0,0,0,.10); }
+.card-actions { margin-top: var(--space-2);
+  align-content: center;
+  display: flex; }
+
+.gallery { grid-template-columns: 1fr; }
+@media (min-width: 760px) { .gallery { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
+/* ===================== AMENITIES (Screenshot-style) ===================== */
+.section-amenities-split {
+  background: var(--brand-gold-600); /* use --brand-accent-yellow if you prefer brighter */
+  color: var(--brand-ink);
+}
+.headline-xl {
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin: 0;
+}
+.amenities-split {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1.1fr 1fr;
+  align-items: start;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+.amenities-intro-right p {
+  margin: 0;
+  font-size: clamp(1rem, 1.2vw, 1.0625rem);
+  line-height: 1.7;
+  color: var(--ink-600);
+}
+@media (max-width: 900px) { .amenities-split { grid-template-columns: 1fr; } }
+
+.amenities-icons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+}
+@media (min-width: 700px) { .amenities-icons { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.amenity { text-align: center; }
+.amenity .icon {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  margin: 0 auto var(--space-1);
+}
+.amenity .icon img {
+  width: 42px; height: 42px; object-fit: contain;
+  filter: grayscale(100%); /* monochrome look */
+}
+.amenity .label { display: block; font-weight: 800; color: #ffffff !important ; }
+
+/* ===================== LOCATIONS ===================== */
+.locations { 
+  display: grid; 
+  gap: var(--space-3); /* Increased gap for better spacing */
+}
+
+@media (min-width: 760px) { 
+  .locations { 
+    grid-template-columns: repeat(3, minmax(0,1fr)); 
+  } 
+}
+
+.hours { 
+  margin-top: var(--space-3); /* Increased margin */
+  text-align: center; /* Centered the hours text */
+}
+
+/* Styles for the location link which acts as the card */
+.location-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #EAEAEA;
+  border-radius: 12px;
+  overflow: hidden; /* Ensures the image corners are rounded */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff; /* Added a background for the card */
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+.location-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.08);
+}
+
+.loc-img { 
+  margin: 0; 
+  width:100%; 
+  height: 200px; /* Gave a fixed height for consistency */
+  object-fit: cover; /* Ensures images fill the space well */
+  display:block; 
+}
+
+/* Padding for the text content inside the card */
+.location-link h3,
+.location-link p {
+  padding: 0 1rem;
+}
+
+.location-link h3 { 
+  margin: 1rem 0 0.5rem; 
+  color: var(--ink-600);
+}
+
+.location-link p { 
+  margin: 0; 
+  color: var(--ink-400); 
+  padding-bottom: 1rem;
+}
+
+.view-map-link {
+  display: block; /* Made it a block to fill width */
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--brand-accent-blue);
+  padding: 0 1rem 1rem;
+}
+
+/* ===================== FOOTER ===================== */
+.site-footer {
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  padding: var(--space-4) 0;
+}
+/* Make locations section heading white only */
+.locations-title{ color:#fff !important; }
+.footer-grid { display: grid; gap: var(--space-2); }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; } }
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin: 0.4rem 0; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
+/* ===================== TESTIMONIALS ===================== */
+#testimonials .testimonials{
+  grid-template-columns: 1fr;
+}
+@media (min-width: 860px){
+  #testimonials .testimonials{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+.t-marquee{ position: relative; overflow: hidden; width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding: .25rem 0; }
+.t-track{
+  display: flex; gap: 1.25rem;
+  will-change: transform;
+  animation: t-scroll 16s linear infinite;
+}
+.t-marquee:hover .t-track{ animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce){ .t-track{ animation: none; } }
+@keyframes t-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+.t-card{ flex: 0 0 85vw; max-width: 960px; }
+@media (min-width: 900px){ .t-card{ flex-basis: 55vw; } }
+.t-card{
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid #eee;
+  border-radius: var(--radius-2);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+}
+.t-card blockquote{ margin: 0 0 .75rem; color: var(--ink-600); }
+.t-card figcaption{ display: grid; grid-template-columns: 42px 1fr; gap: .6rem; align-items: center; }
+.t-card .avatar{
+  width: 42px; height: 42px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #111;
+  background: linear-gradient(180deg, #FEF46D, #FE924F);
+  border: 1px solid rgba(0,0,0,.06);
+}
+.t-card .meta span{ display:block; color: var(--ink-400); font-size: .9rem; }
+
+/* ===================== FAQ ===================== */
+.faq{ display: grid; gap: .75rem; }
+.faq-item{ border: 1px solid #eee; border-radius: var(--radius-2); background:#fff; overflow:hidden; }
+.faq-q{
+  width: 100%; text-align: left; padding: 0.9rem 1rem;
+  background: transparent; border: 0; font: inherit; font-weight: 600; cursor: pointer;
+  display:flex; align-items:center; justify-content:space-between; gap:.75rem;
+}
+.faq-q::after{
+  content: "+"; font-weight: 800; color: var(--brand-ink);
+}
+.faq-q[aria-expanded="true"]::after{ content: "–"; }
+.faq-a{ padding: 0 1rem 1rem; color: var(--ink-400); }
+.faq-a[hidden]{ display:none; }
+/* "Why Choose Us?" callout (uses your PNG as background) */
+.why-cta{
+  background: url("assets/why choose us.png") top left / 160px auto no-repeat; /* ← REPLACE path if different */
+  padding: 1rem 1rem 1rem 0;
+  min-height: 180px;
+  color: var(--brand-ink);
+}
+@media (min-width: 800px){
+  .why-cta{
+    background-size: 220px auto;
+    padding-left: 240px; /* space for the bg art on larger screens */
+  }
+}
+.why-cta__title{
+  margin: 0 0 .5rem;
+  font-family: var(--font-head);
+  font-weight: 800;
+  color: var(--brand-ink);
+}
+.why-cta__title span{ color: var(--brand-accent-orange); } /* logo orange */
+.why-cta__bullets{
+  margin: 0;
+  padding-left: 1.1rem;   /* small list indent */
+  list-style: disc;
+  color: var(--brand-ink);
+}
+.why-cta__bullets li{
+  margin: 0 0 .35rem;
+  font-weight: 600;
+}
+/* OVERRIDE old yellow section background */
+.section-amenities-split,
+#amenities { background:#fff; color:#000; } /* neutral surface */
+
+/* Two-column layout (icons left, WHY card right) */
+.amenities-2col{
+  display:grid;
+  grid-template-columns: 1.6fr 1fr; /* left > right */
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+}
+
+/* Stack on mobile */
+@media (max-width: 900px){
+  .amenities-2col{ grid-template-columns: 1fr; }
+}
+
+/* Icon grid: compact so it doesn’t run long */
+.amenities-left .amenities-icons{
+  list-style:none; padding:0; margin: clamp(1rem, 2vw, 1.25rem) 0 0;
+  display:grid; gap: 1.5rem 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 900px){
+  .amenities-left .amenities-icons{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* Existing chip style reused */
+.amenity { text-align:center; }
+.amenity .icon{
+  width:92px;height:92px;border-radius:50%;background:#fff;
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  margin:0 auto .6rem;border:1px solid rgba(105,136,155,.22); /* slate tint */
+}
+.amenity .icon img{ width:40px;height:40px;object-fit:contain; filter:grayscale(100%); }
+.amenity .label{ display:block; font-weight:700; color:#000; }
+
+/* WHY card (right) — logo palette only */
+.why-card{
+  position:relative;
+  background:#fff;
+  border:1px solid rgba(105,136,155,.28);    /* slate (#69889B) at 28% */
+  border-radius:14px;
+  padding:1rem 1rem 1rem 1rem;
+  box-shadow:0 10px 28px rgba(0,0,0,.06);
+  min-height: 260px;
+}
+
+/* subtle decorative bg image */
+.why-card::before{
+  content:"";
+  position:absolute; inset:auto -8px -8px auto; /* top-right corner */
+  width:140px; height:140px;
+  background:url("assets/why choose us.png") center/contain no-repeat; /* <— your bg image */
+  opacity:.12; pointer-events:none;
+}
+
+.why-card h3{
+  margin:0 0 .6rem; font-weight:800; color:#000;
+}
+.why-card .accent{ color:#FE924F; }           /* logo orange */
+.why-bullets{ margin:0; padding-left:1.1rem; }
+.why-bullets li{
+  margin:0 0 .5rem; font-weight:600; color:#000;
+}
+/* 1) Pull WHY card closer to icons */
+.amenities-2col{
+  grid-template-columns: 1.35fr 1fr;           /* was 1.6fr 1fr */
+  gap: clamp(.75rem, 2vw, 1.25rem);            /* smaller gap */
+}
+.why-card{ justify-self: start; }               /* align to the icons column */
+/* 3) spacing for contact buttons */
+.contact-inline { display:flex; gap:.6rem; justify-content:center; margin-top:1rem; }
+.contact-inline .btn { flex:1; } /* equal width */
+.contact-inline{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
+.contact-inline .btn { flex:1; min-width:140px; } /* equal width, min 140px */
+/* ===== KHALF OVERRIDES — paste at END of styles.css ===== */
+
+/* Fix BG image path (use forward slashes; rename if needed) */
+.why-cta{
+  background: url("assets/why-choose-us.png") top left / 160px auto no-repeat !important;
+}
+.why-card::before{
+  background-image: url("assets/why-choose-us.png") !important;
+}
+
+/* Pull WHY card closer + prevent overflow */
+.amenities-2col{
+  grid-template-columns: 1.35fr 1fr !important;  /* closer to icons */
+  gap: clamp(.75rem, 2vw, 1.25rem) !important;
+  align-items: start;
+}
+.why-card{
+  justify-self: start;
+  overflow: hidden;                                /* clip the decorative image */
+}
+
+/* EXACTLY 3 icons per row (centered), no spill */
+.amenities-left .amenities-icons{
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  justify-items: center;
+  gap: 1.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile: put WHY above the icons */
+@media (max-width: 900px){
+  .amenities-2col{ grid-template-columns: 1fr !important; }
+  .why-card{ order: 1 !important; margin-bottom: 1rem; }
+  .amenities-left{ order: 2 !important; }
+}
+
+/* Contact buttons row (Call / Email) — no overflow, wrap nicely */
+.contact-inline{
+  display: flex !important;
+  gap: .6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.contact-inline .btn{
+  flex: 1 1 140px;     /* equal widths */
+  min-width: 140px;
+}
+/* ===== ORDER + CENTERING OVERRIDES (paste at END) ===== */
+
+/* Stack: icons first, then WHY (all viewports) */
+.amenities-2col{
+  grid-template-columns: 1fr !important;  /* one column stack */
+}
+.amenities-left{ order: 1 !important; }
+.why-card{
+  order: 2 !important;
+  justify-self: center;      /* center the WHY card block */
+  max-width: 720px;          /* keeps card tidy */
+  width: 100%;
+  margin-top: 1rem;
+  overflow: hidden;          /* prevents bg art spill */
+}
+
+/* Icons: exactly 3 per row on desktop, centered as a group */
+.amenities-left .amenities-icons{
+  grid-template-columns: repeat(3, minmax(140px, 1fr)) !important;
+  gap: 1.25rem 1.5rem;
+  max-width: 900px;          /* clamp grid width */
+  margin: 0 auto;            /* center the whole grid */
+  justify-items: center;     /* center items inside cells */
+}
+
+/* Smaller screens: 2 per row */
+@media (max-width: 560px){
+  .amenities-left .amenities-icons{
+    grid-template-columns: repeat(2, minmax(120px, 1fr)) !important;
+  }
+}
+/* === HERO as background + one-column layout === */
+/* Make the hero image MORE visible (reduce overlay) */
+.hero{
+  background:
+    /* lower the white overlay alpha so the photo shows through */
+    linear-gradient(180deg, rgba(255,255,255,.30) 0%, rgba(255,255,255,.15) 100%),
+    url("assets/Hero image.png") center/cover no-repeat !important;
+}
+
+/* (optional) if you want maximum visibility, remove the overlay entirely: */
+
+.hero{
+  background: url("assets/Hero image.png") center/cover no-repeat !important;
+}
+
+
+/* (optional) keep text readable over the brighter image */
+.hero-copy h1,
+.hero-copy .subhead,
+.hero-copy .tagline{
+  text-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+
+
+/* Make hero content single-column and vertically centered */
+.hero .container,
+.hero .container.hero-only{
+  display: grid;
+  grid-template-columns: 1fr !important;
+  align-items: center;
+  min-height: clamp(380px, 60vh, 560px);
+  gap: 1rem;
+}
+
+/* Align Call/Email neatly on one row and wrap on small screens */
+.cta-row{
+  display: flex;
+  align-items: center !important;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+/* === Make hero copy readable over a brighter photo === */
+.hero-copy{
+  position: relative;
+  max-width: 720px;                /* keeps lines short */
+  padding: 1rem 1.25rem;           /* space inside the panel */
+  z-index: 0;                      /* create stacking context */
+}
+
+/* Soft, frosted panel behind the text (local scrim only) */
+.hero-copy::before{
+  content: "";
+  position: absolute;
+  inset: -12px -16px -12px -16px;  /* extend a bit beyond text block */
+  background: rgba(255,255,255,.78);     /* ↑ make .85 for stronger / .60 for lighter */
+  backdrop-filter: blur(4px);            /* subtle blur of the image under text */
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  z-index: -1;                           /* sit behind the text */
+}
+
+/* Ensure strong contrast for the lines */
+.hero-copy h1,
+.hero-copy .subhead,
+.hero-copy .tagline{
+  color: #111;
+}
+
+/* Optional: a touch of shadow if the image is very high-contrast */
+.hero-copy h1{ text-shadow: 0 1px 2px rgba(0,0,0,.12); }
+/* === Amenities: left headline + right icons (4-up, small chips) === */
+.amenities-2col{
+  display:grid;
+  grid-template-columns: 1.05fr 1fr;      /* left text, right icons */
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+  align-items:start;
+}
+
+.amenities-promo{
+  /* make the hook tight and bold */
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.05;
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  max-width: 14ch;                         /* short lines on the left */
+  margin: 0;
+  padding-left: clamp(12px, 1.2vw, 16px);  /* a little breathing on left */
+  position: relative;
+}
+
+/* adaptive background art behind the headline */
+.amenities-left{
+  position: relative;
+  min-height: 220px;                       /* ensures art has room */
+}
+.amenities-left::before{
+  content:"";
+  position:absolute;
+  inset: 0 auto auto 0;                    /* top-left corner */
+  width: clamp(200px, 28vw, 360px);        /* responsive size */
+  height: clamp(160px, 22vw, 280px);
+  background: url("assets/promo-triangles.svg") left top/contain no-repeat;
+  opacity: .14;                            /* subtle; raise to .22 if needed */
+  pointer-events:none;
+}
+
+/* Right column icon grid — 4 per row, centered */
+.amenities-right .amenities-icons{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 1rem 1.25rem;
+  margin: 0; padding: 0;
+  justify-items: center;
+}
+
+/* Small icon chips */
+.amenity .icon{
+  width: 72px; height: 72px;               /* was ~96px */
+  border-radius: 50%;
+  background:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  border:1px solid rgba(105,136,155,.22);
+  margin: 0 auto .45rem;
+}
+.amenity .icon img{ width: 30px; height: 30px; filter: grayscale(100%); }
+.amenity .label{ font-weight: 700; font-size: .95rem; color: #000; }
+
+/* Mobile: stack and switch to 2-up grid */
+@media (max-width: 900px){
+  .amenities-2col{ grid-template-columns: 1fr; }
+  .amenities-right .amenities-icons{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .amenities-left::before{ width: clamp(160px, 46vw, 280px); height: auto; }
+}
+/* --- Amenities: stack layout (headline on top, icons below) --- */
+#amenities { background:#fff; color:#000; }
+
+/* kill any old two-column rules for this section */
+.amenities-2col{ display:block !important; }
+.amenities-left::before{ display:none !important; }
+
+/* headline + subhead */
+.amenities-stack{
+  position: relative;
+  text-align: center;
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.amenities-head{
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.08;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  margin: 0 0 .25rem;
+}
+.amenities-sub{
+  margin: 0 auto 0.75rem;
+  color: var(--ink-400);
+  max-width: 48ch;
+}
+
+/* adaptive decorative triangles behind the headline */
+.amenities-stack::before{
+  content:"";
+  position:absolute;
+  left:50%; top:-10px; transform:translateX(-50%);
+  width: clamp(220px, 56vw, 520px);
+  height: clamp(120px, 26vw, 240px);
+  background: url("assets/second image") center/contain no-repeat;
+  opacity: .12;               /* make .18 for stronger, .08 for lighter */
+  pointer-events:none;
+  z-index: 0;
+}
+.amenities-head, .amenities-sub{ position: relative; z-index: 1; }
+
+/* icon grid: 4 per row desktop, 2 per row mobile; centered */
+.amenities-icons.grid-4{
+  list-style:none; padding:0; margin:0 auto;
+  display:grid; justify-items:center;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+  max-width: 1000px;
+}
+@media (max-width: 900px){
+  .amenities-icons.grid-4{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+/* smaller icon chips */
+.amenity .icon{
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  border:1px solid rgba(105,136,155,.22);
+  margin: 0 auto .4rem;
+}
+.amenity .icon img{ width: 28px; height: 28px; filter: grayscale(100%); }
+.amenity .label{ font-weight:700; font-size:.95rem; color:#000; }
+/* Force amenities to 3 per row and center them */
+.amenities-icons.grid-3,
+.amenities-right .amenities-icons.grid-3{
+  display: grid !important;                         /* override any flex/block */
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.25rem 1.5rem;
+  justify-items: center;
+  max-width: 980px;                                 /* keeps rows from stretching too wide */
+  margin: 0 auto;                                   /* center the whole grid */
+}
+
+/* Make sure items don't stretch full-width */
+.amenities-icons.grid-2 > li { width: auto !important; }
+
+/* Mobile: drop to 2 columns */
+@media (max-width: 720px){
+  .amenities-icons.grid-2,
+  .amenities-right .amenities-icons.grid-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+/* ===== Amenities rectangle card under hero ===== */
+#amenities{ background:#fff; color:#000; }
+
+/* the card container */
+.amenities-card{
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;                 /* left bigger than right */
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items:start;
+  background:#fff;
+  border:1px solid rgba(105,136,155,.22);          /* slate tint */
+  border-radius:16px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 10px 28px rgba(0,0,0,.06);
+}
+
+/* left column */
+.amenities-head{
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.08;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0 0 .6rem;
+}
+.amenities-photo{
+  border-radius:12px;
+  border:1px solid rgba(105,136,155,.18);
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* right column — force 3 columns */
+.amenities-icons.grid-2{
+  display:grid !important;
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  gap: 1rem 1.25rem;
+  justify-items:center;
+  margin: 0;
+  padding: 0;
+}
+
+/* smaller chips only inside this card */
+.amenities-card .amenity .icon{
+  width:72px; height:72px;
+  border-radius:50%;
+  background:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid rgba(105,136,155,.22);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  margin:0 auto .45rem;
+}
+.amenities-card .amenity .icon img{ width:30px; height:30px; filter:grayscale(100%); }
+.amenities-card .amenity .label{ font-weight:700; font-size:.95rem; color:#000; }
+
+/* mobile: stack, image still under headline, icons go to 2 columns */
+@media (max-width: 900px){
+  .amenities-card{ grid-template-columns:1fr; }
+  .amenities-icons.grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+/* ===== Amenities: background image with text left & icons right ===== */
+
+/* neutralize any previous 2-col/card rules for this section */
+#amenities .amenities-2col, #amenities .amenities-card { display: block !important; }
+
+/* background image container */
+#amenities .amenities-overlay{
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(105,136,155,.22);
+  background: var(--amenities-bg) center/cover no-repeat;
+}
+
+/* soft left/right scrim so text + icons are readable, without a box */
+#amenities .amenities-overlay::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.16) 38%, rgba(0,0,0,0) 62%),
+    linear-gradient(270deg, rgba(0,0,0,.26) 0%, rgba(0,0,0,0) 40%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* overlay grid */
+#amenities .amenities-layer{
+  position: relative; z-index:1;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;  /* left text, right icons */
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: center;
+  min-height: clamp(360px, 52vh, 520px);
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+/* left text */
+#amenities .amenities-copy h2{
+  margin: 0 0 .4rem;
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.05;
+  font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
+#amenities .amenities-copy p{
+  margin: 0;
+  color: #f1f5f7;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
+}
+
+/* right icons: 3 per row, centered */
+#amenities .amenities-icons.grid-2{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  gap: 1rem 1.25rem;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* smaller chips on image */
+#amenities .amenity .icon{
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.95);
+  display:inline-flex; align-items:center; justify-content:center;
+  border: 1px solid rgba(105,136,155,.22);
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+  margin: 0 auto .4rem;
+  backdrop-filter: blur(2px);
+}
+#amenities .amenity .icon img{ width: 28px; height: 28px; filter: grayscale(100%); }
+#amenities .amenity .label{ color:#fff; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,.4); }
+
+/* responsive: stack on mobile, icons 2-up */
+@media (max-width: 900px){
+  #amenities .amenities-layer{ grid-template-columns: 1fr; gap: 1rem; }
+  #amenities .amenities-icons.grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  #amenities .amenities-overlay::before{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.18) 46%, rgba(0,0,0,0) 72%);
+  }
+}
+/* WHY strip sits outside the image */
+.why-strip{
+  display:inline-block;
+  padding: .65rem 1rem;
+  border-radius: 12px;
+  font-family: var(--font-head);
+  font-weight: 800;
+  margin: 0 0 .75rem;
+  background: var(--brand-accent-orange); /* OPTION 1: orange */
+  color: #111;
+}
+
+/* If you prefer slate instead, use this and remove the orange line above: */
+/* .why-strip{ background:#69889B; color:#fff; } */
+/* ===== FINAL AMENITIES + WHY OVERRIDES (append at END; keep existing code) ===== */
+
+/* 1) WHY strip color control (outside the image) */
+:root{
+  --why-strip-bg: var(--brand-accent-orange);  /* change to #69889B for slate, etc. */
+  --why-strip-fg: #111;
+}
+.why-strip{
+  background: var(--why-strip-bg) !important;
+  color: var(--why-strip-fg) !important;
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+/* 2) Make amenities BG an image layer we can blur + fade */
+#amenities .amenities-overlay{
+  position: relative;
+  background: none !important;                 /* image goes in ::before now */
+  border-radius: 16px;
+  overflow: hidden;
+}
+#amenities .amenities-overlay::before{
+  content:"";
+  position:absolute; inset:0;
+  /* IMPORTANT: forward slashes + no <img> tag — set inline: style="--amenities-bg: url('assets/amenities-bg.jpg')" */
+  background: var(--amenities-bg) center/cover no-repeat;
+  filter: blur(2.5px);                         /* ↑ 3–4px for stronger blur */
+  opacity: .85;                                /* ↑ = more image, ↓ = more fade */
+  z-index: 0;
+}
+/* Soft scrim for readability (no panel) */
+#amenities .amenities-overlay::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.36) 0%, rgba(0,0,0,.16) 40%, rgba(0,0,0,0) 68%),
+    linear-gradient(270deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 42%);
+  pointer-events:none;
+  z-index: 0;
+}
+/* Keep overlay content above image/scrim */
+#amenities .amenities-layer{ position: relative; z-index: 1; }
+
+/* 3) Keep layout: text left, icons right */
+#amenities .amenities-layer{
+  display: grid !important;
+  grid-template-columns: 1.1fr 1fr;            /* left (copy) / right (icons) */
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: center;
+}
+
+/* 4) Force icons to 3 columns on desktop, 2 on mobile */
+#amenities .amenities-icons.grid-2,
+#amenities .amenities-right .amenities-icons.grid-2,
+#amenities .amenities-icons.grid-2{            /* in case your UL still uses grid-2 */
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  gap: 1rem 1.25rem;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 900px){
+  #amenities .amenities-layer{ grid-template-columns: 1fr !important; }
+  #amenities .amenities-icons.grid-2,
+  #amenities .amenities-right .amenities-icons.grid-2,
+  #amenities .amenities-icons.grid-2{
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
+
+/* 5) Chip sizes on image (smaller) + readable labels */
+#amenities .amenity .icon{
+  width: 70px; height: 70px;
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(105,136,155,.22);
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+  backdrop-filter: blur(2px);
+}
+#amenities .amenity .icon img{ width: 28px; height: 28px; filter: grayscale(100%); }
+#amenities .amenity .label{ color:#fff; font-weight:700; text-shadow:0 1px 4px rgba(0,0,0,.4); }
+
+/* 6) Fix any old backslash paths for WHY background image */
+.why-cta{
+  background: url("assets/why choose us.png") top left / 160px auto no-repeat !important;
+}
+.why-card::before{
+  background-image: url("assets/why choose us.png") !important;
+}
+/* ===== FULL-BLEED AMENITIES (image spans full page) ===== */
+
+/* Make only the image block break out of the centered container */
+#amenities .amenities-overlay{
+  /* break out to full viewport width */
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  /* full-bleed look (no rounded box) */
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  /* we render the bg in ::before so leave background:none here */
+  background: none !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== GALLERY SLIDER ===== */
+.slider{ position: relative; overflow: hidden; width: 100%; }
+.slides{ display: flex; gap: 0; will-change: transform; transition: transform 600ms ease; }
+.slide{ min-width: 100%; user-select: none; }
+.slide img{ width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; border-radius: 12px; border:1px solid rgba(105,136,155,.16); box-shadow:0 10px 28px rgba(0,0,0,.08); }
+.slider-dots{ display:flex; gap:.4rem; justify-content:center; margin-top:.75rem; }
+.slider-dots button{ width:8px; height:8px; border-radius:50%; border:0; background:#cfd8dc; padding:0; cursor:pointer; transition: transform .12s ease, background-color .2s ease; }
+.slider-dots button[aria-selected="true"]{ background: var(--brand-accent-blue); }
+
+/* prefer-reduced-motion: no auto animation */
+@media (prefers-reduced-motion: reduce){
+  .slides{ transition: none; }
+}
+
+/* Background PHOTO layer (blur + slight transparency) */
+#amenities .amenities-overlay::before{
+  content:"";
+  position:absolute; inset:0;
+  background: var(--amenities-bg) center/cover no-repeat;
+  filter: blur(2px);            /* ↑ 3–4px for more blur */
+  opacity: .88;                 /* ↑ to .95 for less fade; ↓ for more fade */
+  z-index: 0;
+}
+
+/* Readability scrim across the image (left heavier) */
+#amenities .amenities-overlay::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,.22) 42%, rgba(0,0,0,0) 70%),
+    linear-gradient(270deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 40%);
+  pointer-events:none;
+  z-index: 0;
+}
+
+/* Overlay grid: text left, icons right, comfortable height */
+#amenities .amenities-layer{
+  position: relative; z-index: 1;
+  display: grid !important;
+  grid-template-columns: 1.05fr 1fr;   /* left / right */
+  gap: clamp(1rem, 3vw, 2.25rem);
+  align-items: center;
+  min-height: clamp(480px, 72vh, 760px);  /* full section feel */
+  padding: clamp(1rem, 6vw, 4rem);
+}
+
+/* Headline + sub on the image */
+#amenities .amenities-copy h2{
+  margin: 0 0 .5rem;
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.03;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  color: #fff;
+  text-shadow: 0 3px 10px rgba(0,0,0,.5);
+}
+#amenities .amenities-copy p{
+  margin: 0;
+  color: #f3f6f8;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0,0,0,.45);
+}
+
+/* Icons: 3 per row on desktop, 2 per row on mobile */
+#amenities .amenities-icons.grid-2{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  gap: 1.1rem 1.4rem;
+  justify-items: center;
+  margin: 0; padding: 0;
+}
+#amenities .amenity .icon{
+  width: 70px; height: 70px;
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(105,136,155,.22);
+  border-radius: 50%;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  backdrop-filter: blur(2px);
+  margin: 0 auto .45rem;
+}
+#amenities .amenity .icon img{ width: 28px; height: 28px; filter: grayscale(100%); }
+#amenities .amenity .label{ color:#fff; font-weight:700; text-shadow:0 2px 6px rgba(0,0,0,.45); }
+
+/* Mobile: stack text above icons; keep image full-bleed */
+@media (max-width: 900px){
+  #amenities .amenities-layer{ grid-template-columns: 1fr; min-height: 64vh; }
+  #amenities .amenities-icons.grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  #amenities .amenities-overlay::after{
+    background: linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.20) 48%, rgba(0,0,0,0) 78%);
+  }
+}
+/* ===== FULL-BLEED AMENITIES (image spans full page) ===== */
+
+/* Make only the image block break out of the centered container */
+#amenities .amenities-overlay{
+  /* break out to full viewport width */
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  /* full-bleed look (no rounded box) */
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  /* we render the bg in ::before so leave background:none here */
+  background: none !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background PHOTO layer (blur + slight transparency) */
+#amenities .amenities-overlay::before{
+  content:"";
+  position:absolute; inset:0;
+  background: var(--amenities-bg) center/cover no-repeat;
+  filter: blur(2px);            /* ↑ 3–4px for more blur */
+  opacity: .88;                 /* ↑ to .95 for less fade; ↓ for more fade */
+  z-index: 0;
+}
+
+/* Readability scrim across the image (left heavier) */
+#amenities .amenities-overlay::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.50) 0%, rgba(0,0,0,.22) 42%, rgba(0,0,0,0) 70%),
+    linear-gradient(270deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 40%);
+  pointer-events:none;
+  z-index: 0;
+}
+
+/* Overlay grid: text left, icons right, comfortable height */
+#amenities .amenities-layer{
+  position: relative; z-index: 1;
+  display: grid !important;
+  grid-template-columns: 1.05fr 1fr;   /* left / right */
+  gap: clamp(1rem, 3vw, 2.25rem);
+  align-items: center;
+  min-height: clamp(480px, 72vh, 760px);  /* full section feel */
+  padding: clamp(1rem, 6vw, 4rem);
+}
+
+/* Headline + sub on the image */
+#amenities .amenities-copy h2{
+  margin: 0 0 .5rem;
+  font-family: var(--font-head);
+  font-weight: 800;
+  line-height: 1.03;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  color: #fff;
+  text-shadow: 0 3px 10px rgba(0,0,0,.5);
+}
+#amenities .amenities-copy p{
+  margin: 0;
+  color: #f3f6f8;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0,0,0,.45);
+}
+
+/* Icons: 3 per row on desktop, 2 per row on mobile */
+#amenities .amenities-icons.grid-2{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  gap: 1.1rem 1.4rem;
+  justify-items: center;
+  margin: 0; padding: 0;
+}
+#amenities .amenity .icon{
+  width: 70px; height: 70px;
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(105,136,155,.22);
+  border-radius: 50%;
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  backdrop-filter: blur(2px);
+  margin: 0 auto .45rem;
+}
+#amenities .amenity .icon img{ width: 28px; height: 28px; filter: grayscale(100%); }
+#amenities .amenity .label{ color:#fff; font-weight:700; text-shadow:0 2px 6px rgba(0,0,0,.45); }
+
+/* Mobile: stack text above icons; keep image full-bleed */
+@media (max-width: 900px){
+  #amenities .amenities-layer{ grid-template-columns: 1fr; min-height: 64vh; }
+  #amenities .amenities-icons.grid-2{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  #amenities .amenities-overlay::after{
+    background: linear-gradient(180deg, rgba(0,0,0,.48) 0%, rgba(0,0,0,.20) 48%, rgba(0,0,0,0) 78%);
+  }
+}
+/* FORCE amenities to 2 per row (desktop + mobile) */
+#amenities .amenities-icons.grid-2,
+#amenities .amenities-right .amenities-icons.grid-2{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  gap: 1.25rem 1.5rem;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+/* keep items from stretching */
+#amenities .amenities-icons.grid-2 > li { width: auto !important; }
+
+/* (optional) if the tiniest screens feel cramped, drop to 1 column under 360px */
+@media (max-width: 360px){
+  #amenities .amenities-icons.grid-2{
+    grid-template-columns: 1fr !important;
+  }
+}
+/* Hero with full-bleed background + overlapping card */
+.hero-bleed{
+  position: relative;
+  background: var(--hero-bg) center/cover no-repeat !important; /* img6 */
+}
+
+/* subtle dark scrim so text reads on any photo */
+.hero-bleed::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.10) 45%, rgba(0,0,0,0) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ensure content sits above the image */
+.hero-bleed .container{
+  position: relative;
+  z-index: 1;
+  padding: clamp(3rem, 10vw, 6rem) 0; /* vertical breathing room */
+}
+
+/* the white card that overlaps the image */
+.hero-card{
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 44px rgba(0,0,0,.14);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  max-width: 920px;
+}
+
+/* if earlier .hero set a gradient, neutralize it for this variant */
+.hero.hero-bleed{ background: var(--hero-bg) center/cover no-repeat !important; }
+
+/* optional: give the card a soft “lift” by shifting it up slightly on wide screens */
+@media (min-width: 900px){
+  .hero-card{ transform: translateY(0); } /* set to -10px if you want it to float more */
+}
+/* Use img6 for the hero-bleed variant, regardless of earlier .hero rules */
+.hero.section.hero-bleed{
+  background: var(--hero-bg, url('assets/hero.jpg')) center/cover no-repeat !important;
+}
+
+/* Scope the old default hero background so it doesn't affect hero-bleed */
+.hero:not(.hero-bleed){
+  background: url('assets/hero.jpg') center/cover no-repeat;
+}
