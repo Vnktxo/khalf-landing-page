@@ -1,552 +1,137 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Khalf CoWorks: Coworking & Private Offices in Chennai</title>
-  <meta name="description" content="Vibrant coworking in Chennai with ultra speed wifi, meeting rooms, pantry, networking and more. Book a visit to Anna Nagar, Guindy or OMR.">
+    <title>Khalf CoWorks | Get 25% Off Your Workspace in Chennai</title>
+    <meta name="description" content="Book your tour today and get 25% off your first month. Premium coworking and private offices in Anna Nagar, Guindy, and OMR.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Khalf CoWorks: Coworking & Private Offices in Chennai">
-  <meta property="og:description" content="Vibrant coworking in Chennai with ultra speed wifi, meeting rooms, pantry, networking and more. Book a visit to Anna Nagar, Guindy or OMR.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.khalfcoworks.in/">
-  <meta property="og:image" content="assets/hero.jpg"><!-- REPLACE WITH SITE IMAGE -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.khalfcoworks.in/">
+    <meta property="og:title" content="Khalf CoWorks | Get 25% Off Your Workspace in Chennai">
+    <meta property="og:description" content="Premium coworking and private offices in Anna Nagar, Guindy, and OMR.">
+    <meta property="og:image" content="assets/img4.jpg">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Khalf CoWorks: Coworking & Private Offices in Chennai">
-  <meta name="twitter:description" content="Vibrant coworking in Chennai with ultra speed wifi, meeting rooms, pantry, networking and more. Book a visit to Anna Nagar, Guindy or OMR.">
-  <meta name="twitter:image" content="assets/hero.jpg"><!-- REPLACE -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.khalfcoworks.in/">
+    <meta name="twitter:title" content="Khalf CoWorks | Get 25% Off Your Workspace in Chennai">
+    <meta name="twitter:description" content="Premium coworking and private offices in Anna Nagar, Guindy, and OMR.">
+    <meta name="twitter:image" content="assets/img4.jpg">
 
-  <!-- Fonts (fallbacks) - TODO: replace with exact site families if you have them -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css" />
 
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- GA4 Placeholder -->
-  <!-- TODO: REPLACE WITH YOUR GA4 MEASUREMENT ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PMGV5GLKYT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PMGV5GLKYT'); // REPLACE
-  </script>
-
-  <!-- JSON-LD (CoworkingSpace) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CoworkingSpace",
-        "name": "Khalf Co Works",
-        "url": "https://www.khalfcoworks.in/",
-        "telephone": "+91-9940222448",
-        "email": "hello@khalfcoworks.in",
-        "openingHoursSpecification": [
-          {"@type": "OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"},
-          {"@type": "OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"19:00"}
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "AB 103 & 105, 2nd Floor, 4th Ave, Anna Nagar",
-          "addressLocality": "Chennai",
-          "addressRegion": "Tamil Nadu",
-          "postalCode": "600040",
-          "addressCountry": "IN"
-        }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PMGV5GLKYT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PMGV5GLKYT');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CoworkingSpace",
+      "name": "Khalf Co Works",
+      "url": "https://www.khalfcoworks.in/",
+      "logo": "assets/logo.png",
+      "telephone": "+91-9940222448",
+      "email": "hello@khalfcoworks.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
       },
-      {
-        "@type": "CoworkingSpace",
-        "name": "Khalf Co Works - Guindy",
-        "url": "https://www.khalfcoworks.in/",
-        "telephone": "+91-9940222448",
-        "email": "hello@khalfcoworks.in",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "2nd Floor, RR Tower 3, Thiru Vi Ka Industrial Estate, SIDCO Industrial Estate, Guindy",
-          "addressLocality": "Chennai",
-          "addressRegion": "Tamil Nadu",
-          "postalCode": "600032",
-          "addressCountry": "IN"
-        }
-      },
-      {
-        "@type": "CoworkingSpace",
-        "name": "Khalf Co Works - OMR (Perungudi)",
-        "url": "https://www.khalfcoworks.in/",
-        "telephone": "+91-9940222448",
-        "email": "hello@khalfcoworks.in",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "9th Floor, Prince Infocity 1, Old Mahabalipuram Road, Perungudi",
-          "addressLocality": "Chennai",
-          "addressRegion": "Tamil Nadu",
-          "postalCode": "600096",
-          "addressCountry": "IN"
-        }
-      }
-    ]
-  }
-  </script>
+      "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"20:00"},
+        {"@type": "OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"09:00","closes":"19:00"}
+      ]
+    }
+    </script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container">
-      <a href="/" class="brand" aria-label="Khalf CoWorks home">
-        <!-- REPLACE WITH BRAND SVG/PNG -->
-        <img src="assets/Khalf Branding Files.png" alt="Khalf CoWorks logo - Connect • Create • Collaborate" width="160" height="44" />
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a class="btn btn-primary" 
-    href="https://docs.google.com/forms/d/e/1FAIpQLSdZ7ziwcA7L5MgvGYhvR4fnjc-P1I8ov3j7fKkPkgVA9LXilA/viewform?usp=header" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    data-analytics="generate_lead">Contact Us Now!</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-  <!-- HERO -->
-<section class="hero hero-bleed" style="--hero-bg: url('assets/hero.jpg');">
-  <div class="container hero-wrap">
-    <div class="hero-card">
-      <!-- your existing hero copy/buttons -->
-   
-     <h1>Why limit your team to virtual productivity?</h1>
-      <p class="subhead">
-        Flexible coworking & private offices in <strong>Anna Nagar</strong>, <strong>Guindy</strong>, and
-        <strong>OMR (Perungudi)</strong> — with ultra speed wifi, meeting rooms, pantry & more.
-      </p>
-      <p class="tagline" aria-label="tagline">Connect • Create • Collaborate</p>
-
-     <div class="cta-row">
-        <a class="btn btn-primary" href="tel:+919940222448" data-analytics="tel_click">Call Us NOW!</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- WHY label (optional) -->
-<!-- Amenities (full-bleed) -->
-<section class="section" id="amenities" aria-labelledby="amenities-title">
-  <div class="amenities-overlay" style="--amenities-bg: url('assets/img4.jpg');">
-    <div class="amenities-layer">
-      <div class="amenities-copy">
-        <h2 id="amenities-title">Team bonding doesn’t happen over patchy Wi‑Fi.</h2>
-        <p>Ultra-speed Wi‑Fi, meeting rooms, pantry, print credit, parking & more.</p>
-      </div>
-
-      <ul class="amenities-icons grid-2" role="list">
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/Wifi.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Ultra Speed wifi</span>
-        </li>
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/meeting-room.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Meeting Rooms</span>
-        </li>
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/cafeteria.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Pantry</span>
-        </li>
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/printer.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Free Print Credit</span>
-        </li>
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/coffee-machine.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Tea/coffee</span>
-        </li>
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/car parking.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Parking</span>
-        </li>
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/networking.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Networking</span>
-        </li>
-        <li class="amenity">
-          <span class="icon"><img loading="lazy" src="assets/icons/games.png" alt="" aria-hidden="true" /></span>
-          <span class="label">Games</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-
-    <!-- SPACE TYPES -->
-    <section class="section" id="spaces" aria-labelledby="spaces-title">
-      <div class="container">
-        <h2 id="spaces-title">Is your team brainstorming—or just talking online?
-          <br>Move from mute to MOMENTUM.</br>
-
-</h2>
-
-        <div class="grid cards">
-          <article class="card">
-            <img loading="lazy" src="assets/img1.jpg" alt="Meeting Rooms" />
-            <h3>Meeting Rooms</h3>
-            <p>Discover versatile collaborative spaces suitable for all corporate occasions, whether it's board meetings or casual gatherings.</p>
-            <div class="card-actions">
-              <!-- REPLACE WITH SITE URL -->
-              <a class="btn btn-outline" href="https://www.khalfcoworks.in/" data-analytics="view_more_click">View More</a>
-            </div>
-          </article>
-          <article class="card">
-          <img loading="lazy" src="assets/img7.jpg" alt="Private office at Khalf CoWorks" />
-          
-            <h3>Private Office Space</h3>
-            <p>Explore ready-to-use office spaces carefully designed for functionality and optimal spacing, perfect for your immediate occupancy needs.</p>
-            <div class="card-actions">
-              <!-- REPLACE WITH SITE URL -->
-              <a class="btn btn-outline" href="https://www.khalfcoworks.in/" data-analytics="view_more_click">View More</a>
-            </div>
-          </article>
-          <article class="card">
-            <img loading="lazy" src="assets/img3.jpg" alt="Coworking floor at Khalf CoWorks" />
-            <h3>CoWorking Space</h3>
-            <p>Choose from either of our dedicated seats or flexi seats and be a part of our coworking community. Our space is designed to foster productivity</p>
-            <div class="card-actions">
-              <!-- REPLACE WITH SITE URL -->
-              <a class="btn btn-outline" href="https://www.khalfcoworks.in/" data-analytics="view_more_click">View More</a>
-            </div>
-          </article>
-        </div>
-        
-    </section>
-    
-
-    <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials" aria-labelledby="testimonials-title">
-      <div class="container">
-        <h2 id="testimonials-title">What our clients say</h2>
-        <div class="t-marquee">
-          <div class="t-track">
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Yes Coworks place very nice with small meeting room, the way of approaching from the management is good. I can suggest for this place.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">RK</div>
-                <div class="meta">
-                  <strong>RANJITH KUMAR</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Very Good Environment for working. Management staffs are easily approachable and friendly so that the issues are sorted out very quickly.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">DM</div>
-                <div class="meta">
-                  <strong>DHAKSHINA MOORTHY C</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Good atmosphere co-working space at affordable cost, professional service near Anna Nagar. I would highly recommend this place to everyone.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">PG</div>
-                <div class="meta">
-                  <strong>POORNI G</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Good place to work, highly recommended for startup’s and corporate clients”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">RM</div>
-                <div class="meta">
-                  <strong>RIYAZ MOHAMED</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Flexible workspace, professional admin support by Dinesh...”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">BB</div>
-                <div class="meta">
-                  <strong>BARATH BALA</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Friendly and peaceful Atmosphere... Loved it.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">MZ</div>
-                <div class="meta">
-                  <strong>MOHAMED ZAYEED</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Cool ambience and great place to work”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">AV</div>
-                <div class="meta">
-                  <strong>APOORVA VS</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <!-- duplicate for seamless loop -->
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Yes Coworks place very nice with small meeting room, the way of approaching from the management is good. I can suggest for this place.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">RK</div>
-                <div class="meta">
-                  <strong>RANJITH KUMAR</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Very Good Environment for working. Management staffs are easily approachable and friendly so that the issues are sorted out very quickly.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">DM</div>
-                <div class="meta">
-                  <strong>DHAKSHINA MOORTHY C</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Good atmosphere co-working space at affordable cost, professional service near Anna Nagar. I would highly recommend this place to everyone.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">PG</div>
-                <div class="meta">
-                  <strong>POORNI G</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Good place to work, highly recommended for startup’s and corporate clients”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">RM</div>
-                <div class="meta">
-                  <strong>RIYAZ MOHAMED</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Flexible workspace, professional admin support by Dinesh...”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">BB</div>
-                <div class="meta">
-                  <strong>BARATH BALA</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Friendly and peaceful Atmosphere... Loved it.”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">MZ</div>
-                <div class="meta">
-                  <strong>MOHAMED ZAYEED</strong>
-                </div>
-              </figcaption>
-            </figure>
-            <figure class="t-card">
-              <blockquote>
-                <p>
-                  “Cool ambience and great place to work”
-                </p>
-              </blockquote>
-              <figcaption>
-                <div class="avatar" aria-hidden="true">AV</div>
-                <div class="meta">
-                  <strong>APOORVA VS</strong>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <h2 id="faq-title">Frequently asked questions</h2>
-        <div class="faq" role="region" aria-labelledby="faq-title">
-          <div class="faq-item">
-            <button class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
-              Do you offer day passes or trial visits?
-            </button>
-            <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
-              Yes. We offer day passes and can arrange a trial visit. Call us at
-              <a class="link" href="tel:+919940222448">9940222448</a> to schedule.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
-              What is included with membership?
-            </button>
-            <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
-              High‑speed Wi‑Fi, meeting room credits, pantry access, print credit, and
-              community events. Private offices include 24/7 access.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
-              Can I choose a specific location?
-            </button>
-            <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
-              Absolutely. Pick from Anna Nagar, Guindy, or OMR (Perungudi). You can also
-              switch based on availability.
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
-              Do you have meeting rooms for external guests?
-            </button>
-            <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
-              Yes. Non‑members can book rooms. Use our
-              <a class="link" href="https://calendly.com/khalf/cfbooking">Calendly</a> link
-              or contact us for assistance.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LOCATIONS -->
-    <section class="section" id="locations" aria-labelledby="locations-title">
-      <div class="container">
-        <h2 id="locations-title">Tired of endless online calls with your team?<br> Check out our locations</h2>
-        <div class="locations">
-          <div class="loc">
-            <a href="https://maps.google.com/?cid=157651676984286094&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" rel="noopener noreferrer" class="location-link">
-              <img loading="lazy" src="assets/img2.jpg" alt="Anna Nagar workspace" class="loc-img" />
-              <h3>Anna Nagar</h3>
-              <p>AB 103 &amp; 105, 2nd Floor, 4th Ave, Chennai, Tamil Nadu 600040</p>
-              <span class="view-map-link">View on Map &rarr;</span>
+    <header class="site-header" role="banner">
+        <div class="container">
+            <a href="/" class="brand" aria-label="Khalf CoWorks home">
+                <img src="assets/Khalf Branding Files.png" alt="Khalf CoWorks logo" width="160" />
             </a>
-          </div>
-          <div class="loc">
-            <a href="https://maps.google.com/?cid=10110778258318021904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" rel="noopener noreferrer" class="location-link">
-              <img loading="lazy" src="assets/img1.jpg" alt="Guindy meeting rooms" class="loc-img" />
-              <h3>Guindy</h3>
-              <p>2nd Floor, RR Tower 3, Thiru Vi Ka Industrial Estate, SIDCO Industrial Estate, Chennai, Tamil Nadu 600032</p>
-               <span class="view-map-link">View on Map &rarr;</span>
-            </a>
-          </div>
-          <div class="loc">
-            <a href="https://maps.google.com/?cid=12619774279816096019&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" rel="noopener noreferrer" class="location-link">
-              <img loading="lazy" src="assets/img7.jpg" alt="OMR coworking floor" class="loc-img" />
-              <h3>OMR (Perungudi)</h3>
-              <p>9th Floor, Prince Infocity 1 – Old Mahabalipuram Road, Perungudi, Chennai, Tamil Nadu 600096</p>
-               <span class="view-map-link">View on Map &rarr;</span>
-            </a>
-          </div>
-        </div>  
-        <p class="hours"><strong>Hours:</strong> Mon–Fri 8:00 am – 8:00 pm • Sat 9:00 am – 7:00 pm</p>
-        <div class="cta-row center">
-          <a class="btn btn-primary" 
-    href="https://docs.google.com/forms/d/e/1FAIpQLSdZ7ziwcA7L5MgvGYhvR4fnjc-P1I8ov3j7fKkPkgVA9LXilA/viewform?usp=header" 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    data-analytics="generate_lead">Let's Connect!</a>
-          <a class="btn btn-outline" href="mailto:hello@khalfcoworks.in" data-analytics="email_click">Email</a>
-
-
-
+            <nav aria-label="Primary">
+                <a class="btn btn-primary" href="tel:+919940222448">Call Now for 25% Off</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="center small">
-          <!-- Optional deep link for room booking -->
-          <a class="link" href="https://calendly.com/khalf/cfbooking" data-analytics="calendly_click"><strong>Conference Room Booking</strong> — Anna Nagar</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    <main id="main">
+        <section class="hero">
+            <div class="container">
+                <h1>Book Your Workspace Today</h1>
+                <p class="subhead">Get 25% off your first month when you book a tour now.</p>
+                <a href="tel:+919940222448" class="btn btn-primary hero-cta">Call Us Now for 25% Off</a>
+            </div>
+        </section>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h3>Khalf Co Works</h3>
-          <p>Anna Nagar • Guindy • OMR (Perungudi) — Chennai</p>
-          <p><a class="link" href="tel:+919940222448" data-analytics="tel_click">Reach Us: 9940222448</a></p>
-          <p><a class="link" href="mailto:hello@khalfcoworks.in">hello@khalfcoworks.in</a>
-</p>
-        </div>
-        <div>
-          <h4>Links</h4>
-          <ul class="footer-links">
-            <li><a class="link" href="https://www.khalfcoworks.in/contact-us">Contact</a></li>
-            <li><a class="link" href="https://www.khalfcoworks.in/" rel="noopener">Home</a></li>
-            <li><a class="link" href="https://www.khalfcoworks.in/khalf-privacy-policy" rel="noopener">Privacy Policy</a></li><!-- REPLACE -->
-          </ul>
-        </div>
-        <div>
-          <h4>Social</h4>
-          <ul class="footer-links">
-            <li><a class="link" href="https://www.instagram.com/khalfcoworks?igsh=cjc1ZDZvdzg3bTUz" data-analytics="social_click">Instagram</a></li>
-            <li><a class="link" href="https://www.facebook.com/khalfcoworks/" data-analytics="social_click">Facebook</a></li>
-          </ul>
-        </div>
-      </div>
-      <p class="tiny">© Khalf Co Works.</p>
-    </div>
-  </footer>
+        <section id="contact" class="contact-info section">
+            <div class="container">
+                <div class="intro-text">
+                    <h2>Say Hello</h2>
+                    <p>Whether you're interested in joining our community, have questions, or need assistance, we're here to help!</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>Direct Contact</h3>
+                        <ul>
+                            <li><strong>Phone:</strong> <a href="tel:+919940222448">+91- 9940222448</a></li>
+                            <li><strong>Email:</strong> <a href="mailto:hello@khalfcoworks.in">hello@khalfcoworks.in</a></li>
+                        </ul>
+                        <h3>Opening Hours</h3>
+                        <ul>
+                           <li><strong>Mon - Fri:</strong> 8:00 am – 8:00 pm</li>
+                           <li><strong>Saturday:</strong> 9:00 am – 7:00 pm</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-card">
+                         <h3>Our Locations</h3>
+                         <ul>
+                            <li>
+                                <strong class="location-name">Anna Nagar:</strong><br>
+                                <a href="http://googleusercontent.com/maps.google.com/7" target="_blank" rel="noopener noreferrer">
+                                    AB 103 & 105, 2nd Floor, 4th Ave, Chennai, 600040
+                                </a>
+                            </li>
+                            <li>
+                                <strong class="location-name">Guindy:</strong><br>
+                                <a href="http://googleusercontent.com/maps.google.com/8" target="_blank" rel="noopener noreferrer">
+                                    2nd Floor, RR Tower 3, Thiru Vi Ka Industrial Estate, Guindy, Chennai, 600032
+                                </a>
+                            </li>
+                            <li>
+                                <strong class="location-name">OMR (Perungudi):</strong><br>
+                                <a href="http://googleusercontent.com/maps.google.com/9" target="_blank" rel="noopener noreferrer">
+                                    9th Floor, Prince Infocity 1, OMR, Perungudi, Chennai, 600096
+                                </a>
+                            </li>
+                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <p>© 2025 Khalf Co Works. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
