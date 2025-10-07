@@ -1,9 +1,5 @@
-/* ==================================
-CSS VARIABLES - YOUR BRAND THEME
-==================================
-*/
+/* CSS VARIABLES - BRAND THEME */
 :root {
-    /* Brand Palette (from you) */
     --brand-accent-orange: #FE924F;
     --brand-accent-yellow: #FEF46D;
     --brand-slate: #1d4f6d;
@@ -11,32 +7,23 @@ CSS VARIABLES - YOUR BRAND THEME
     --surface: #FFFFFF;
     --ink-600: #222222;
     --ink-400: #555555;
-
-    /* Theme Roles (mapped to your brand) */
     --primary-color: var(--brand-accent-orange);
-    --primary-hover-color: #E88347; /* A slightly darker orange for hover */
+    --primary-hover-color: #E88347;
     --dark-color: var(--brand-slate);
     --text-color: var(--ink-600);
     --light-color: var(--surface);
     --section-bg-color: #F8F9FA;
     --border-color: #EAEAEA;
-    
-    /* Spacing & Radius (from you) */
     --space-1: 0.5rem;
     --space-2: 1rem;
     --space-3: 1.5rem;
     --space-4: 2rem;
     --radius-1: 8px;
     --radius-2: 14px;
-
-    /* Fonts */
     --font-primary: 'Poppins', sans-serif;
 }
 
-/* ==================================
-GENERAL STYLES & RESETS
-==================================
-*/
+/* GENERAL STYLES */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -98,10 +85,7 @@ a:hover {
     top: 0;
 }
 
-/* ==================================
-HEADER & NAVIGATION
-==================================
-*/
+/* HEADER & NAVIGATION */
 .site-header {
     background: var(--light-color);
     padding: var(--space-2) 0;
@@ -123,10 +107,7 @@ HEADER & NAVIGATION
     width: auto;
 }
 
-/* ==================================
-BUTTONS
-==================================
-*/
+/* BUTTONS */
 .btn {
     display: inline-block;
     padding: var(--space-1) var(--space-3);
@@ -147,12 +128,10 @@ BUTTONS
     transform: translateY(-2px);
 }
 
-/* ==================================
-HERO SECTION
-==================================
-*/
+/* HERO SECTION */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/img4.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200') no-repeat center center/cover;
     height: 60vh;
     min-height: 400px;
     color: var(--light-color);
@@ -164,18 +143,27 @@ HERO SECTION
     padding: var(--space-4);
 }
 
+.hero .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero h1 {
     font-size: 4rem;
     color: var(--light-color);
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
     text-align: center;
 }
 
 .hero .subhead {
     font-size: 1.25rem;
     max-width: 600px;
-    margin-bottom: var(--space-4);
-    text-align: center; 
+    margin: 0 auto var(--space-4) auto;
+    text-align: center;
+    line-height: 1.6;
 }
 
 .hero .hero-cta {
@@ -183,10 +171,7 @@ HERO SECTION
     padding: var(--space-2) var(--space-4);
 }
 
-/* ==================================
-CONTACT & LOCATIONS
-==================================
-*/
+/* CONTACT & LOCATIONS */
 .contact-info {
     background: var(--section-bg-color);
 }
@@ -231,10 +216,7 @@ CONTACT & LOCATIONS
     margin-top: var(--space-1);
 }
 
-/* ==================================
-FOOTER
-==================================
-*/
+/* FOOTER */
 .site-footer {
     background: var(--dark-color);
     color: var(--light-color);
@@ -242,21 +224,33 @@ FOOTER
     padding: var(--space-4) 0;
 }
 
-/* ==================================
-RESPONSIVE STYLES
-==================================
-*/
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 1.8rem; }
 
     .site-header .container {
-        flex-direction: column;
-        gap: var(--space-2);
+        justify-content: center;
+    }
+
+    .site-header nav {
+        display: none;
+    }
+
+    .site-header .brand img {
+        height: 70px;
     }
 
     .hero {
         height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .subhead {
+        font-size: 1.1rem;
     }
 
     .contact-grid {
