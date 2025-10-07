@@ -131,7 +131,7 @@ a:hover {
 /* HERO SECTION */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200') no-repeat center center/cover;
+                url("assets/img4.jpg") no-repeat center center/cover;
     height: 60vh;
     min-height: 400px;
     color: var(--light-color);
