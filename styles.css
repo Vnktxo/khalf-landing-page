@@ -67,7 +67,7 @@ h1, h2, h3 {
     margin-bottom: var(--space-2);
 }
 
-h1 { font-size: 4rem; }
+h1 { font-size: 4rem; } 
 h2 { font-size: 2.2rem; }
 p { margin-bottom: var(--space-2); }
 
@@ -173,6 +173,7 @@ HERO SECTION
     font-size: 1.25rem;
     max-width: 600px;
     margin-bottom: var(--space-4);
+    justify-content: center;
 }
 
 .hero .hero-cta {
